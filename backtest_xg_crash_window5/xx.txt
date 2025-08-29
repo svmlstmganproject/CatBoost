@@ -1,0 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# สร้างข้อมูล time series แบบสุ่ม 1000 จุด
+np.random.seed(0)
+data = np.random.randn(1000).cumsum()
+
+# plot กราฟ
+plt.figure(figsize=(12, 6))
+plt.plot(data)
+plt.title('Random Time Series (1000 points)')
+plt.xlabel('Time')
+plt.ylabel('Value')
+plt.grid(True)
+plt.show()
