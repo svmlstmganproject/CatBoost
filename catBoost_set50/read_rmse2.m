@@ -1,0 +1,12 @@
+ cd('D:\VDI_machine\back_up_VDI\catBoost_set50\')
+% Read ADVANC data from Excel file instead of text file
+[~, ~, advanc_data] = xlsread('C:\catboost_window10_crash\SET50\ADVANC\backtest_results_iter0.xlsx', 'ModelMetrics');
+% Find the column index for 'cum_strategy_return'
+headers = advanc_data(1, :);
+cum_strategy_return_idx = find(strcmp(headers, 'Out-of-Sample'));
+
+
+% Extract the data from the cum_strategy_return column (skip header row)
+advanc_window5_crash_rmse = cell2mat(advanc_data(2:end, cum_strategy_return_idx))
+rmse=advanc_window5_crash_rmse(1)
+ 
